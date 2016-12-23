@@ -2,7 +2,7 @@
 	$link = mysqli_connect("localhost", "root", "","udayana_motion");
 
 	$user=$_GET['user'];
-	$sql = "DELETE FROM user WHERE user=$user";
+	$sql = "DELETE FROM user WHERE user='$user'";
 
 	if (mysqli_query($link, $sql)) {
 	    header("Location: pengguna.php");

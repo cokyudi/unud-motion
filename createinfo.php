@@ -1,7 +1,7 @@
 <?php 
   $link = mysqli_connect("localhost", "root", "", "udayana_motion");
 
-  $result = mysqli_query($link, "SELECT * FROM pengaduan");
+  $result = mysqli_query($link, "SELECT * FROM info");
  ?>
 <!DOCTYPE html>
 <html>
@@ -145,6 +145,7 @@
         <li>
           <a href="info.php">
             <i class="fa fa-calendar"></i> <span>Info</span>
+            
           </a>
         </li>
         
@@ -162,11 +163,12 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Pengaduan
+        Create Info
       </h1>
       <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li class="active">Pengaduan</li>
+        <li><a href="info.php"><i class="fa fa-dashboard"></i> Info</a></li>
+        <li class="active">Create Info</li>
       </ol>
     </section>
 
@@ -175,57 +177,75 @@
       <!-- Small boxes (Stat box) -->
       <!-- Main row -->
       <div class="row">
-        <table class="col-lg-5">
-          <table class="table table-hover">
-          <tr>
-            <th>ID</th>
-            <th>Pengirim</th>
-            <th>Kepada</th>
-            <th>Tentang</th>          
-            <th>Foto</th>
-            <th>Tanggal</th>
-            <th>Deskripsi</th>
-            <th>Vote</th>
-            <th>Status</th>
-            <th>Action</th>
-          </tr>
+        <form class="form-horizontal" action="qcreateinfo.php" method="post">
+        <div class="form-group">
+          <label for="inputjudul_info" class="col-sm-2 control-label">Judul</label>
+          <div class="col-sm-4">
+            <input type="text" maxlength="32" class="form-control" name="judul_info" id="judul_info" placeholder="Judul Info"/>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="inputdeskripsi" class="col-sm-2 control-label">Deskripsi</label>
+          <div class="col-sm-4">
+            <textarea class="form-control" rows="5" name="deskripsi" id="deskripsi" placeholder="deskripsi"></textarea>
+          </div>
+        </div>
+        
+        <div class="form-group">     
+              <!-- <label for="uploadPhoto" class="col-sm-2 control-label" enctype="multipart/form-data">Upload Photo</label>
+              <div class="col-sm-4"> 
+                  <input type="file" id="foto" name="foto">
+                  <p class="help-block">Klik untuk upload foto</p>  
+              </div> -->
+              <div class="form-group">
+                <label for="inputfoto" class="col-sm-2 control-label">Upload Foto</label>
+                <div class="col-sm-4">
+                  <input type="text" maxlength="16" class="form-control" name="foto" id="foto" placeholder="foto"/>
+                </div>
+              </div>                 
+        </div>
+
+        <!--        
+        <div class="form-group">
+          <label for="inputAgama" class="col-sm-2 control-label">Agama</label>
+            <div class="col-sm-1">
+              <select class="col-sm-1 form-control" name="agama_id">
+                <option selected disabled>--Pilih Agama--</option>
+                <?php 
+                    $link = mysqli_connect("localhost", "root", "","penduduk");
+
+                    $result = mysqli_query($link, "SELECT * FROM agama");
+
+                    while ($row=mysqli_fetch_row($result))
+                    {
+                      echo "<option value=".$row[0].">".$row[1]."</option>";
+                    }
+                 ?>
           
-          <?php 
-            while ($row=mysqli_fetch_row($result)) 
-            {
-             echo "<tr>";
-             echo "<td>".$row[0]."</td>";
-             echo "<td>".$row[1]."</td>";
-             echo "<td>".$row[2]."</td>";
-             echo "<td>".$row[3]."</td>";  
-             echo "<td>".$row[4]."</td>";
-             echo "<td>".$row[7]."</td>";
-             echo "<td>".$row[5]."</td>";
-             echo "<td>".$row[8]."</td>";
-             echo "<td>".$row[9]."</td>";
+              </select>
+            </div>        
+        </div>
+        -->
 
-             echo "<td><a href='verifypengaduan.php?id=".$row[0]."'>Verifikasi</a> | 
-                <a href='hapuspengaduan.php?id=".$row[0]."'>Hapus</a>
-                </td>";
+        <br>
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+              <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
+        </div>
 
-             echo "</tr>";
-            }
-
-           ?>
-           </table>
-        </table>
+        </form>
       </div>
+      
       <!-- /.row (main row) -->
-
     </section>
     <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
   <footer class="main-footer">
     <div class="pull-right hidden-xs">
-      <b>Version</b> 2.3.7
     </div>
-    <strong>Copyright &copy; 2014-2016 <a href="http://almsaeedstudio.com">Almsaeed Studio</a>.</strong> All rights
+    <strong>Copyright &copy; 2016 <a href="#">Unud Motion</a>.</strong> All rights
     reserved.
   </footer>
 

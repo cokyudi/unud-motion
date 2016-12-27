@@ -3,19 +3,18 @@
 $link = mysqli_connect('localhost', 'root', '', 'udayana_motion');
   
 // buat prepared statements
-$stmt = mysqli_prepare($link, "INSERT INTO info 
+$stmt = mysqli_prepare($link, "INSERT INTO info (user, tanggal, judul_info, deskripsi, foto)
 VALUES ('1408605048', ?, ?, ?, ?)");
   
-// hubungkan "data" dengan prepared statements
-mysqli_stmt_bind_param($stmt, "ssss", 
-	$tanggal, $judul_info, $deskripsi, $foto);
-  
-// siapkan "data" query 1
-$POST['tanggal']=date('Y-m-d');
+  // siapkan "data" query 1
+$tanggal=date('Y-m-d');
 $judul_info=$_POST['judul_info'];
 $deskripsi=$_POST['deskripsi'];
 $foto=$_POST['foto'];
 
+// hubungkan "data" dengan prepared statements
+mysqli_stmt_bind_param($stmt, "ssss", 
+	$tanggal, $judul_info, $deskripsi, $foto);
   
 // jalankan query 1
 mysqli_stmt_execute($stmt);

@@ -42,9 +42,16 @@
                 </div>
                 
                 <div class="form-group">
-                  <label for="" class="col-sm-2 control-label">Foto</label>
+                  <label for="inputFoto" class="col-sm-2 control-label">Foto</label>
                   <div class="col-sm-4">
                     <input type="file" name="foto">
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label for="inputTanggal" class="col-sm-2 control-label">Tanggal</label>
+                  <div class="col-sm-4">
+                    <input type="date" class="form-control" name="tanggal" id="tanggal">
                   </div>
                 </div>
 

@@ -10,7 +10,7 @@
 	$judul_info = $_POST['judul_info'];
 	$foto = 'uploads/info_'.time().'.'.$ext;
 	$deskripsi = $_POST['deskripsi'];
-	$tanggal = date('Y-m-d h:i:s');
+	$tanggal = $_POST['tanggal'];
 
 	echo $foto;
 

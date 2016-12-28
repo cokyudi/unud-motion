@@ -30,12 +30,13 @@
             <th>ID</th>
             <th>User</th>
             <th>Tanggal</th>
-            <th>Tentang</th>          
+            <th>Judul Info</th>          
             <th>Foto</th>
             <th>Deskripsi</th>
             <th>Komentar</th>
             <th>Favorit</th>
             <th>Status</th>
+            <th>Action</th>
           </tr>
           
           <?php 
@@ -46,11 +47,15 @@
              echo "<td>".$row[1]."</td>";
              echo "<td>".$row[2]."</td>";
              echo "<td>".$row[3]."</td>";  
-             echo "<td>".$row[4]."</td>";
+             echo "<td><img src='".FILE_URL.$row[4]."' width='200'></td>";
              echo "<td>".$row[5]."</td>";
              echo "<td>".$row[6]."</td>";
              echo "<td>".$row[7]."</td>";
              echo "<td>".$row[8]."</td>";
+
+             echo "<td><a href='info_edit.php?id=".$row[0]."'>Edit</a> | 
+                      <a href='info_hapus.php?id=".$row[0]."'>Hapus</a>
+                      </td>";
 
              echo "</tr>";
             }
@@ -60,7 +65,7 @@
         </table>
       </div>
       <div class="col-lg-3">
-          <a href="createinfo.php">
+          <a href="info_tambah.php">
             <button type="button" class="btn btn-default" aria-label="left Align">
               <span class="glyphicon glyphicon-plus" aria-hiden="true">
               </span>

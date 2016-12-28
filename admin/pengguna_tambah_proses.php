@@ -5,7 +5,7 @@
 VALUES (?, ?, ?)");
 
 	mysqli_stmt_bind_param($stmt, "sss", 
-$username, $password, $role);
+$user, $password, $role);
 
 	$user = $_POST['user'];
 	$password = md5($_POST['password']);
@@ -17,8 +17,8 @@ $username, $password, $role);
 	   die('Query Error : '.mysqli_errno($link).' - '.mysqli_error($link));
 	}
 	else {
-		//header("Location: pengguna.php");
-	   echo "Penambahan ".mysqli_stmt_affected_rows($stmt)." data berhasil<br />";
+		header("Location: pengguna.php");
+	   //echo "Penambahan ".mysqli_stmt_affected_rows($stmt)." data berhasil<br />";
 	}
 
 ?>

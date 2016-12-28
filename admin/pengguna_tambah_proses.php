@@ -1,14 +1,13 @@
 <?php
 	include '../config.php';
 	  
-	$stmt = mysqli_prepare($link, "INSERT INTO user(user, password, role)
-VALUES (?, ?, ?)");
+	$stmt = mysqli_prepare($link, "INSERT INTO user (user, password, nama, role) VALUES (?, ?, ?, ?)");
 
-	mysqli_stmt_bind_param($stmt, "sss", 
-$username, $password, $role);
+	mysqli_stmt_bind_param($stmt, "ssss", $user, $password, $nama, $role);
 
 	$user = $_POST['user'];
 	$password = md5($_POST['password']);
+	$nama = $_POST['nama'];
 	$role = $_POST['role'];
 	
 	mysqli_stmt_execute($stmt);

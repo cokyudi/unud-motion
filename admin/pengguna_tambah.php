@@ -44,6 +44,13 @@
                 </div>
 
                 <div class="form-group">
+                  <label for="inputuser" class="col-sm-2 control-label">Nama</label>
+                  <div class="col-sm-4">
+                    <input type="text" maxlength="16" class="form-control" name="nama" id="nama" placeholder="Jhon">
+                  </div>
+                </div>
+
+                <div class="form-group">
                   <label for="inputRole" class="col-sm-2 control-label">Role</label>
                     <div class="col-sm-4">
                       <select class="form-control" name="role" id="Role">

@@ -1,13 +1,14 @@
 <?php
 	include '../config.php';
 	  
-	$stmt = mysqli_prepare($link, "UPDATE info SET judul_info = ?, deskripsi = ?, foto = ? WHERE id = ?");
+	$stmt = mysqli_prepare($link, "UPDATE info SET judul_info = ?, deskripsi = ?, foto = ?, tanggal = ? WHERE id = ?");
 
 	$ext = end((explode(".", $_FILES["foto"]["name"])));
 	
 	$judul_info = $_POST['judul_info'];
 	$deskripsi = $_POST['deskripsi'];
 	$foto = 'uploads/info_'.time().'.'.$ext;
+	$tanggal = $_POST['tanggal'];
 	$id = $_POST['id'];
 
 	echo $foto;
@@ -40,7 +41,7 @@
 	    }
 	}
 
-	mysqli_stmt_bind_param($stmt, "ssss", $judul_info, $deskripsi, $foto, $id);
+	mysqli_stmt_bind_param($stmt, "sssss", $judul_info, $deskripsi, $foto, $tanggal, $id);
 	mysqli_stmt_execute($stmt);
 	  
 	if (!$stmt) {

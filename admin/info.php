@@ -36,6 +36,7 @@
             <th>Komentar</th>
             <th>Favorit</th>
             <th>Status</th>
+            <th>Action</th>
           </tr>
           
           <?php 
@@ -51,6 +52,7 @@
              echo "<td>".$row[6]."</td>";
              echo "<td>".$row[7]."</td>";
              echo "<td>".$row[8]."</td>";
+             echo "<td><a href='info_status.php?id=".$row[0]."'>Status</a></td>";
 
              echo "</tr>";
             }

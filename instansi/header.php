@@ -121,11 +121,6 @@
             <i class="fa fa-calendar"></i> <span>Info</span>
           </a>
         </li>
-        <li>
-          <a href="pengguna.php">
-            <i class="fa fa-dashboard"></i> <span>Pengguna</span>
-          </a>
-        </li>
         
       </ul>
     </section>

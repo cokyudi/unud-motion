@@ -45,7 +45,7 @@
                    echo "<tr>";
                    echo "<td>".$row[0]."</td>";
                    echo "<td>".$row[2]."</td>";
-                   echo "<td><img src='".FILE_URL.$row[3]."' width='200'></td>";
+                   echo "<td><img src='".FILE_URL.$row[3]."' width='100'></td>";
                    echo "<td>".$row[4]."</td>";
                    echo "<td>".$row[5]."</td>";  
                    echo "<td>".$row[6]."</td>";

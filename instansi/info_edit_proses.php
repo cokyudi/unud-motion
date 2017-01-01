@@ -13,7 +13,7 @@
 
 	echo $foto;
 
-	$target_dir = "../uploads/";
+	$target_dir = UPLOADS_PATH;
 	$target_file = $target_dir . basename($foto);
 
 	$uploadOk = 1;

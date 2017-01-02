@@ -15,9 +15,22 @@
 	else {
 		// FIREBASE
 		if ($status == 1) {
-			$result = mysqli_query($link, "SELECT judul_info, LEFT(deskripsi, 100) as deskripsi, id FROM info WHERE id = $id");
+			$result = mysqli_query($link, "
+				SELECT i.*, u.nama, DATE_FORMAT(tanggal, '%W, %d %b %Y') as tanggal, u.foto as foto_profil, i.foto as foto_info
+				FROM info i
+				JOIN user u ON u.user = i.user
+				WHERE id = $id
+			");
 			if ($row=mysqli_fetch_assoc($result)) {
-				$message = array('message' => $row['deskripsi'], 'title' => $row['judul_info'], 'id' => $row['id']);
+				$message = array(
+					'message' => $row['deskripsi'], 
+					'title' => $row['judul_info'], 
+					'id' => $row['id'],
+					'nama' => $row['nama'],
+					'tanggal' => $row['tanggal'],
+					'foto_info' => $row['foto_info'],
+					'foto_profil' => $row['foto_profil'],
+				);
 			}
 			
 			$result = mysqli_query($link, "SELECT * FROM token");

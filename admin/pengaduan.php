@@ -48,7 +48,7 @@
                    echo "<td>".$row[1]."</td>";
                    echo "<td>".$row[2]."</td>";
                    echo "<td>".$row[3]."</td>";  
-                   echo "<td><img src='".FILE_URL.$row[4]."' width='200'></td>";
+                   echo "<td><img src='data:image/png;base64,".$row[4]."' width='200'></td>";
                    echo "<td>".$row[7]."</td>";
                    echo "<td>".$row[8]."</td>";
                    echo "<td>".$row[9]."</td>";
